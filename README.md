@@ -1,74 +1,22 @@
-# Erp-Portal
-Role-based college ERP (Admin / Staff / Student) built with Node.js, Express, SQLite and JWT auth
 # EduSphere ERP
 
-A role-based college management system (ERP) with separate dashboards for Admin, Staff and Students. Built with Node.js, Express and SQLite.
+## How to run (Windows / Mac / Linux)
+1. Install Node.js 22.5 or newer (LTS 24 is fine): https://nodejs.org
+2. In this folder, open Command Prompt (or the VS Code terminal) and run:
+   npm install
+   npm start
+3. Open http://localhost:3000 in your browser.
 
-## Live Demo
-🔗 <aapki live site ka link>
+If PowerShell blocks npm, use Command Prompt or run `npm.cmd start`.
 
-> Note: Hosted on a free tier, so the first load may take up to a minute. This is a demo project, not for real use.
+## Roles
+- Admin: add / edit / delete staff and students, routines, fees, everything
+- Staff: add / edit students, attendance, marks, notices, exams, assignments, downloads
+- Student: view own data, submit assignments, send feedback
+- Profile photo is optional everywhere
 
-## Demo Logins
-| Role | Email | Password |
-|---------|--------------------------|-------------|
-| Admin | admin@edusphere.com | Admin@123 |
-| Staff | <ashvinkparmar7359@gmail.com> | <123456> |
-| Student | <gamingmind761@gmail.com> | <password> |
-
-## Features
-**Admin**
-- Add, edit and delete staff and students
-- Manage class routines and exam schedules
-- Fee management with payment receipts
-- Full access to all modules
-
-**Staff**
-- Add and edit students
-- Mark attendance
-- Enter marks and results
-- Post notices, create assignments, upload downloads
-
-**Student**
-- View own profile, attendance, results, fees and routine
-- Submit assignments (file upload)
-- Send feedback and ratings
-
-**Common**
-- Optional profile photo
-- Change password
-- Secure file uploads (type and size restricted)
-
-## Tech Stack
-- **Backend:** Node.js, Express
-- **Database:** SQLite (`node:sqlite`)
-- **Auth:** JWT, bcrypt password hashing
-- **Security:** Helmet, login rate limiting, role-based access control
-- **File uploads:** Multer
-- **Frontend:** HTML, CSS, JavaScript (single page)
-
-## Run Locally
-Requires Node.js 22.5 or newer.
-
-```bash
-npm install
-npm start
-```
-Open http://localhost:3000
-
-On first run a default admin is created: `admin@edusphere.com` / `Admin@123`.
-
-## Project Structure
-```
-edusphere-erp/
-├── server.js        # API, auth, database setup
-├── public/
-│   └── index.html   # Frontend
-├── data/            # SQLite DB and uploads (created at runtime)
-└── package.json
-```
-
-## Possible Improvements
-- Move to PostgreSQL and cloud storage (S3) for production
-- Email notifications and password reset
-- Automated tests and CI
+## Data
+- Database: data/erp.db (SQLite) - back this file up regularly
+- Uploaded files: data/uploads/
+- Passwords are stored hashed (bcrypt) and cannot be read back; admin can reset a user's password with Edit.
+- The data folder in this zip already contains the users you added earlier.
